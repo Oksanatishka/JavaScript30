@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Type Ahead 👀</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <form class="search-form">
+            <input type="text" class="search" placeholder="City or State" />
+            <ul class="suggestions">
+                <li>Filter for a city</li>
+                <li>or a state</li>
+            </ul>
+        </form>
+        <script>
+            const endpoint =
+                'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+            // ------------- TODO: -------------
+
+            // 1) First of all, we need an empty array to put our cities into
+            const cities = [];
+            // Then we need to go out and fetch our data. We're going to be using a new API in the browser called fetch.
+            // And if you've done an HTML or XML HTTP request in the browser before, you probably have used like JQuery.dol. JSON or a library like axios. However, the browser now has a new one built in which is called fetch.
+
+            // fetch(endpoint)
+
+            // And what fetch will do, if you're used to maybe running a callback like this
+
+            // fetch(endpoint, function(data){
+            //   console.log(data);
+            // })
+
+            // it works a little bit differently than that because fetch itself will return what is called a promise
+            // and I'll show you that. If you we were to just put this in a variable,
+
+            // const prom = fetch(endpoint);
+            // console.log(prom)
+
+            // It doesn't return the data, it returns what's called a promise which is sort of like a something will eventually come back from this fetch.
+            // So the way that we can work with the promise is you call .then against it. And it's going to return to us just like a blob of data.
+            // I like to call it a blob. And I'll show you why. You might think like, "Oh why, wouldn't that just be the list of
+            // cities?" So from that let's console.log ...
+
+            // fetch(endpoint).then(blob => console.log(blob));
+            // fetch(endpoint).then(blob => JSON.parse(blob));
+
+            fetch(endpoint)
+                .then(blob => blob.json())
+                // .then(data => console.log(data));
+                .then(data => cities.push(...data));
+
+            // Now how do I get this data into cities? You might think, "Oh I'll just do a Cities equals data, right?
+
+            function findMatches(wordToMatch, cities) {
+                return cities.filter(place => {
+                    // here we need to figure out if the city or state matches what was searched
+                    // To put variable into reg expression:
+                    const regex = new RegExp(wordToMatch, 'gi'); // g - global, i - insensitive
+                    return place.city.match(regex) || place.state.match(regex);
+                });
+            }
+
+            function numberWithCommas(x) {
+                return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            }
+
+            function displayMatches() {
+                // console.log(this.value)
+                const matchArray = findMatches(this.value, cities);
+                const html = matchArray
+                    .map(place => {
+                        const regex = new RegExp(this.value, 'gi');
+                        const cityName = place.city.replace(
+                            regex,
+                            `<span class="hl">${this.value}</span>`
+                        );
+                        const stateName = place.state.replace(
+                            regex,
+                            `<span class="hl">${this.value}</span>`
+                        );
+                        return `
+      <li>
+        <span class="name">${cityName}, ${stateName}</span>
+        <span class="population">${numberWithCommas(place.population)}</span>
+      </li>
+    `;
+                    })
+                    .join('');
+                suggestions.innerHTML = html;
+            }
+
+            const searchInput = document.querySelector('.search');
+            const suggestions = document.querySelector('.suggestions');
+
+            searchInput.addEventListener('change', displayMatches);
+            searchInput.addEventListener('keyup', displayMatches);
+        </script>
+    </body>
+</html>
