@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>HTML5 Canvas</title>
+    </head>
+    <body>
+        <canvas id="draw" width="800" height="800"></canvas>
+        <script>
+            // ------------- TODO: -------------
+            // 1) grab that canvas
+            const canvas = document.querySelector('#draw');
+
+            // 2) grab a context. Canvas on the web is sort of like Microsoft Paint, where you just get a block of actual pixels and you need to then draw on that.
+            // Now, you don't draw directly on the canvas element in HTML, but you draw on something called the context.
+            // And the context can either be 2D, which is what we'll be working with, although you can also use it with 3D for the stuff like video games and 3D rendering.
+            // https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext
+            const ctx = canvas.getContext('2d');
+
+            // 3) size up our canvas to be the exact width of the window.
+            // By default, your canvas is going to be 800px by 800px, as I've done it here. However, we want to resize it before we do any of our drawings.
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            // 4) Then we need to do a couple of the base settings with the strokeStyle, the lineCap and the lineJoin.
+            ctx.strokeStyle = '#BADA55';
+            ctx.lineJoin = 'round';
+            ctx.lineCap = 'round';
+            ctx.lineWidth = 100;
+            // ctx.globalCompositeOperation = 'multiply';
+
+            // 5) Next, we need a couple of dummy variables.
+            let isDrawing = false;
+            let lastX = 0;
+            let lastY = 0;
+            let hue = 0;
+            let direction = true;
+
+            // 6) Next up, we need a function called draw, and that's going to take in an event.
+            // That draw function is going to be called whenever I move my mouse on top of the canvas.
+            function draw(e) {
+                if (!isDrawing) return; // stop the fn from running when they are not moused down
+                console.log(e);
+                // HSL https://mothereffinghsl.com/, what HSL is, it's essentially the rainbow, but you can programmatically select pieces of the rainbow.
+                ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+                ctx.beginPath();
+                // start from
+                ctx.moveTo(lastX, lastY);
+                // go to
+                ctx.lineTo(e.offsetX, e.offsetY);
+                ctx.stroke();
+                // lastX = e.offsetX
+                // lastY = e.offsetY
+                // Let me just show you a quick ES6 trick. We could set both of these variables in one line
+                [lastX, lastY] = [e.offsetX, e.offsetY]; // That's called "destructuring an array".
+
+                hue++;
+                if (hue >= 360) {
+                    hue = 0;
+                }
+                if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
+                    direction = !direction;
+                }
+
+                if (direction) {
+                    ctx.lineWidth++;
+                } else {
+                    ctx.lineWidth--;
+                }
+            }
+
+            canvas.addEventListener('mousedown', e => {
+                isDrawing = true;
+                [lastX, lastY] = [e.offsetX, e.offsetY];
+            });
+            canvas.addEventListener('mousemove', draw);
+            canvas.addEventListener('mouseup', () => (isDrawing = false));
+            canvas.addEventListener('mouseout', () => (isDrawing = false));
+        </script>
+
+        <style>
+            html,
+            body {
+                margin: 0;
+            }
+        </style>
+    </body>
+</html>
