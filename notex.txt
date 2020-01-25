@@ -17,6 +17,17 @@ https://javascript30.com/
 08 Fun with HTML5 Canvas                    [FUN&EXPERIMENTAL]
     - canvas, ctx
 09 Dev Tools Domination                     [FUNDAMENTALS]
+    - console.log()
+    - console.warn()
+    - console.error()
+    - console.info()
+    - console.assert()
+    - console.clear()
+    - console.dir()
+    - console.groupCollapsed(), console.groupEnd()
+    - console.count()
+    - console.time(), console.timeEnd()
+    - console.table(arr)
 10 Hold Shift and Check Checkboxes          [DOM&INTERFACE]
 11 Custom Video Player                      [AUDIO&VIDEO]
 12 Key Sequence Detection                   [FUNDAMENTALS]
