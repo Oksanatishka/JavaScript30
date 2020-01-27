@@ -35,6 +35,14 @@ https://javascript30.com/
     - this.checked
     - addEventListener
 11 Custom Video Player                      [AUDIO&VIDEO]
+    - document.querySelector() / document.querySelectorAll()
+    - Video Properties: .paused, .duration, .currentTime 
+    - Video Methods: play(), pause()
+    - JS events: click/mousemove/mousedown/mouseup (mouse event), play/pause/timeupdate(media events)
+    - 'element.offsetWidth' property, 'e.offsetX' property 
+    - CSS 'flex-basis' property(initial length of a flexible item), ex. flex-basis: 100px;
+    - dataset property
+    - textContent property
 12 Key Sequence Detection                   [FUNDAMENTALS]
 13 Slide in on Scroll                       [DOM&INTERFACE]
 14 JavaScript References VS Copying         [FUNDAMENTALS]
