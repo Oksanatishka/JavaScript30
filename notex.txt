@@ -73,6 +73,13 @@ https://javascript30.com/
             2) const captain3 = { ...person };
             3) const captain4 = JSON.parse(JSON.stringify(person)); - not recommended way
 15 LocalStorage                             [FUNDAMENTALS, DOM&INTERFACE]
+    - addEventListener('submit')
+    -   e.preventDefault();   // e.g. form, to stop refresh the page after clicking on submit
+        input.value
+        this.reset()
+    -   localStorage.setItem('items', JSON.stringify(items));
+        JSON.parse(localStorage.getItem('items'))
+    - e.target.matches()    // related to event delegation
 16 Mouse Move Shadow                        [DOM&INTERFACE, CSS]
 17 Sort Without Articles                    [FUNDAMENTALS]
 18 Adding Up Times with Reduce              [FUNDAMENTALS]
