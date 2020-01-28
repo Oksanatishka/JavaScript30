@@ -48,6 +48,11 @@ https://javascript30.com/
     - e.key
     - Array methods: splice (with a negative index), includes
 13 Slide in on Scroll                       [DOM&INTERFACE]
+    - document.querySelectorAll()
+    - forEach
+    - window.scrollY / window.innerHeight / img.offsetTop
+    - img.classList.add()
+    - window.addEventListener('scroll', debounce(myFunc))
 14 JavaScript References VS Copying         [FUNDAMENTALS]
 15 LocalStorage                             [FUNDAMENTALS, DOM&INTERFACE]
 16 Mouse Move Shadow                        [DOM&INTERFACE, CSS]
