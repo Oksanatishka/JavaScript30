@@ -54,6 +54,24 @@ https://javascript30.com/
     - img.classList.add()
     - window.addEventListener('scroll', debounce(myFunc))
 14 JavaScript References VS Copying         [FUNDAMENTALS]
+    - strings, numbers and booleans
+        let age = 100;
+        let age2 = age;
+        age = 200;      // age = 200, age2 = 100
+        age2 = 300;     // age = 200, age2 = 300
+    - arrays
+        - References - the same way as above (will change both variables)
+        - Copying - 4 ways:
+            1) const team2 = players.slice()
+            2) const team3 = [].concat(players)
+            3) const team4 = [...players]
+            4) const team5 = Array.from(players)
+    - objects
+        - References - the same way as above
+        - Copying - 3 ways:
+            1) const captain2 = Object.assign({}, person, { number: 99, age: 12 });
+            2) const captain3 = { ...person };
+            3) const captain4 = JSON.parse(JSON.stringify(person)); - not recommended way
 15 LocalStorage                             [FUNDAMENTALS, DOM&INTERFACE]
 16 Mouse Move Shadow                        [DOM&INTERFACE, CSS]
 17 Sort Without Articles                    [FUNDAMENTALS]
