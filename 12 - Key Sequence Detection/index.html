@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Key Detection</title>
+        <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+    </head>
+    <body>
+        <script>
+            // ------------- TODO: -------------
+            // Key sequencing detection means when someone inputs a certain sequence of keys
+            // into your window or into an inputter, something like that, then something needs
+            // to happen. And what this is used most for online is the Konami code which is, if you grew up in the 1980s or
+            // 1990s, you'll know that you can type in up, up, down, down, left, right, left,
+            // right, B, A, start, and what that will do is it will trigger like unlimited lives
+            // in Mario or something like that. So, I figured out Buzzfeed, of all websites, has a Konami code.
+            // If you go to the website and press up, up, down, down, left, right, left, right, B, A, enter, and it changes
+            // all the words to Wilkie, I'm not sure who that is, but it's pretty
+            // funny. Different websites have little Easter eggs that you can
+            // surface. So, let's see how that works.
+
+            window.addEventListener('keyup', e => {
+                console.log(e.key);
+                pressed.push(e.key);
+                // If negative, will begin that many elements from the end.
+                pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+                // contains appears to be deprecated. You should use includes instead.
+                if (pressed.join('').includes(secretCode)) {
+                    console.log('DING DING!');
+                    cornify_add();
+                }
+                console.log(pressed);
+            });
+            let pressed = [];
+            let secretCode = 'wesbos';
+        </script>
+    </body>
+</html>

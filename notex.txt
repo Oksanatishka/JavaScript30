@@ -44,6 +44,9 @@ https://javascript30.com/
     - dataset property
     - textContent property
 12 Key Sequence Detection                   [FUNDAMENTALS]
+    - JS events: keyup
+    - e.key
+    - Array methods: splice (with a negative index), includes
 13 Slide in on Scroll                       [DOM&INTERFACE]
 14 JavaScript References VS Copying         [FUNDAMENTALS]
 15 LocalStorage                             [FUNDAMENTALS, DOM&INTERFACE]
