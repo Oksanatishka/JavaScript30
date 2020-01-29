@@ -81,6 +81,9 @@ https://javascript30.com/
         JSON.parse(localStorage.getItem('items'))
     - e.target.matches()    // related to event delegation
 16 Mouse Move Shadow                        [DOM&INTERFACE, CSS]
+    - .addEventListener('mousemove', f-n)
+    - el.offsetWidth / el.offsetHeight, e.offsetX / e.offsetY, e.target.offsetLeft / e.target.offsetTop
+    - text.style.textShadow = `${xWalk}px ${yWalk}px 0 rgba(255,0,255,0.7)`
 17 Sort Without Articles                    [FUNDAMENTALS]
 18 Adding Up Times with Reduce              [FUNDAMENTALS]
 19 Webcam Fun                               [HARDWARE ACCESS, FUN&EXPERIMENTAL, AUDIO&VIDEO]
