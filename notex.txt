@@ -90,6 +90,11 @@ https://javascript30.com/
     - regex /^a |the |an /i
     - elem.innerHTML = ``
 18 Adding Up Times with Reduce              [FUNDAMENTALS]
+    - convert NodeList into an array: Array.from(document.querySelectorAll())
+    - Array methods: map(), reduce((total, vidSeconds) => total + vidSeconds)
+    - String method: split(':'), parseFloat // to convert str into floating number
+    -   Math.floor() - округлить к нижней границе, 
+        Math.ceil() - округлить к верхней границе
 19 Webcam Fun                               [HARDWARE ACCESS, FUN&EXPERIMENTAL, AUDIO&VIDEO]
 20 Speech Detection                         [AUDIO&VIDEO, FUN&EXPERIMENTAL]
 21 Geolocation                              [HARDWARE ACCESS]
