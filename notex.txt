@@ -85,6 +85,10 @@ https://javascript30.com/
     - el.offsetWidth / el.offsetHeight, e.offsetX / e.offsetY, e.target.offsetLeft / e.target.offsetTop
     - text.style.textShadow = `${xWalk}px ${yWalk}px 0 rgba(255,0,255,0.7)`
 17 Sort Without Articles                    [FUNDAMENTALS]
+    - String methods: replace(), trim()
+    - Array method: arr.sort((a, b) => (a > b ? 1 : -1)), map(), join()
+    - regex /^a |the |an /i
+    - elem.innerHTML = ``
 18 Adding Up Times with Reduce              [FUNDAMENTALS]
 19 Webcam Fun                               [HARDWARE ACCESS, FUN&EXPERIMENTAL, AUDIO&VIDEO]
 20 Speech Detection                         [AUDIO&VIDEO, FUN&EXPERIMENTAL]
