@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Understanding JavaScript's Capture</title>
+    </head>
+    <body class="bod">
+        <div class="one">
+            <div class="two">
+                <div class="three"></div>
+            </div>
+        </div>
+
+        <style>
+            html {
+                box-sizing: border-box;
+            }
+
+            *,
+            *:before,
+            *:after {
+                box-sizing: inherit;
+            }
+
+            div {
+                width: 100%;
+                padding: 100px;
+            }
+
+            .one {
+                background: thistle;
+            }
+
+            .two {
+                background: mistyrose;
+            }
+
+            .three {
+                background: coral;
+            }
+        </style>
+
+        <button>My Button</button>
+        <script>
+            // ------------- TODO: -------------
+            // concept of bubbling, - where the browser will figure out what you clicked on, but it will also trigger clicks up every...and they'll ripple all the way up.
+            // How it works? -The way that it works in modern browsers is that the browser will first
+            // do something called a capture, which means that when you click on the element,
+            // it's going to ripple down. It's going to say, "Okay, you clicked on the body,
+            // you clicked on one, you clicked on two, and you clicked on three." So it actually
+            // goes from the top down, and then it captures all of those events,
+            // and then it starts at the bottom, and then starts doing something called a bubble.
+            // So the capture goes from top down, and then the events...the events haven't fired
+            // yet. It just captures where you clicked, and is storing them. Then it will start to
+            // bubble up, which means that it's triggering the events as you go up.
+            // So it says, "Okay, we've done figuring out what you've clicked on all the way down,
+            // now I'm going to start firing off those click events," on three,
+            // then two, then one, then body, and anything else you're listening for.
+            const divs = document.querySelectorAll('div');
+            const button = document.querySelector('button');
+
+            function logText(e) {
+                console.log(this);
+                console.log(this.classList.value);
+                e.stopPropagation(); // "STOP BUBBLING this event up. I clicked the one that I actually wanted."
+            }
+
+            // document.body.addEventListener('click', logText);
+
+            // {capture: true} means we will run the function on the way down rather than on the way up.
+            // by default it is {capture: false}
+            // {once: true} means unbinding itself, is the same thing as saying div.removeEventListener('click', logText).
+            divs.forEach(div =>
+                div.addEventListener('click', logText, { capture: false, once: true })
+            );
+            button.addEventListener('click', () => console.log('Clicked!!'), { once: true });
+            // I should only be able to click this once and never again.
+            // I've used that is in store checkouts, where you do not wish for someone to click that button more than
+            // once, you can unbind it and stop them from clicking it multiple times.
+        </script>
+    </body>
+</html>
