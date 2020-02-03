@@ -253,3 +253,9 @@ https://javascript30.com/
         IntersectionObserver.observe()
     - button.disabled
     - elem.lastElementChild
+32 - Tabs   [taken from https://beginnerjavascript.com/ course]
+    - Array.from()
+    - elem.setAttribute('aria-selected', false);
+    - arr.forEach()
+    - event.currentTarget
+    - arr.find()
