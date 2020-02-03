@@ -141,6 +141,8 @@
         </div>
 
         <script>
+            // ------------- TODO: -------------
+
             // let panels = Array.from(document.querySelectorAll('.panel'));
             // let panelP1 = Array.from(document.querySelectorAll('.panel p:nth-child(1)'));
             // let panelP3 = Array.from(document.querySelectorAll('.panel p:nth-child(3)'));
@@ -164,7 +166,8 @@
 
             const panels = document.querySelectorAll('.panel');
             function toggleOpen() {
-                this.classList.add('open');
+                // this.classList.add('open');
+                this.classList.toggle('open');
             }
             function toggleActive(e) {
                 console.log(e.propertyName);

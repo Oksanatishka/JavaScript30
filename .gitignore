@@ -1,1 +1,20 @@
+# OS generated files #
+######################
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Dependency directories
+node_modules/
+package-lock.json
+
+# next.js build output
+.next
+
+# environment variables with sensitive data
+*.env
+© 2020 GitHub, Inc.

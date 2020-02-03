@@ -1,10 +1,43 @@
 https://javascript30.com/
 
 01 JavaScript Drum Kit                      [DOM&INTERFACE, CSS, AUDIO+VIDEO]
+    - Array.from()
+    -   elem.addEventListener('transitionend', f-n)
+        elem.addEventListener('keydown', f-n)
+    -   e.propertyName
+        e.target.classList.remove()
+        e.keyCode
+    -   audio.currentTime
+        audio.play();
 02 JS and CSS Clock                         [FUNDAMENTALS, CSS] 
+    - setInterval(f-n, 1000);
+    -   let now = new Date();
+        let sec = now.getSeconds();
+        let min = now.getMinutes();
+        let hour = now.getHours();
+    - elem.style.transform = `rotate(${myDegree}deg)`;
 03 CSS Variables                            [CSS, FUN+EXPERIMENTAL]
+    - document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+    - this.dataset
+    - arr.forEach(
+    -   elem.addEventListener('change', f-n));
+        elem.addEventListener('mousemove', f-n));
 04 Array Cardio Day 1                       [FUNDAMENTALS]
+    - obj.filter()
+    - obj.map()
+    - obj.sort((a, b) => a.year - b.year);
+    -   obj.reduce((accumulator, currentValue) => {
+            let diff = currentValue.passed - currentValue.year;
+            return accumulator + diff;
+        }, 0);
+    - arr.sort()
+    - arr.reduce()
 05 Flex Panel Gallery                       [CSS, DOM&INTERFACE]
+    - this.classList.toggle();
+    -   e.propertyName
+        e.propertyName.includes()
+    - elem.addEventListener('transitionend', f-n)
+    - arr.forEach(el => {el.addEventListener('click', f-n);})
 06 Type Ahead                               [DOM&INTERFACE]
     - fetch request
     - Array methods: filter(), map(), replace(), join(), 
@@ -73,6 +106,7 @@ https://javascript30.com/
             2) const captain3 = { ...person };
             3) const captain4 = JSON.parse(JSON.stringify(person)); - not recommended way
 15 LocalStorage                             [FUNDAMENTALS, DOM&INTERFACE]
+    - The two mechanisms within Web Storage API are sessionStorage and localStorage.
     - addEventListener('submit')
     -   e.preventDefault();   // e.g. form, to stop refresh the page after clicking on submit
         input.value
@@ -96,14 +130,117 @@ https://javascript30.com/
     -   Math.floor() - округлить к нижней границе, 
         Math.ceil() - округлить к верхней границе
 19 Webcam Fun                               [HARDWARE ACCESS, FUN&EXPERIMENTAL, AUDIO&VIDEO]
+    - Server: npm install -> npm start
+    - [to get access to webcam] navigator.mediaDevices.getUserMedia({ video: true, audio: false }).then(stream => {video.srcObject = localMediaStream;video.play();})
+    - setInterval(() => {......}, 16);
+    - [canvas]  ctx.drawImage(video, 0, 0, width, height);
+                ctx.getImageData(0, 0, width, height);
+                ctx.putImageData(pixels, 0, 0);
+                canvas.toDataURL('/image/jpeg')
+    - elem.addEventListener('canplay', f-n)
 20 Speech Detection                         [AUDIO&VIDEO, FUN&EXPERIMENTAL]
+    - Server: npm install -> npm start
+    -   const recognition = new SpeechRecognition();
+        recognition.interimResults = true;
+        recognition.lang = 'en-US'
+        recognition.addEventListener('result', e => {});
+        recognition.addEventListener('end', recognition.start);
+        recognition.start();
+    - elem.appendChild(innerElem), elem.insertBefore(innerElem, elem.childNodes[0]);
 21 Geolocation                              [HARDWARE ACCESS]
+    - Server: npm install -> npm start
+    - navigator.geolocation.watchPosition(data => 
+        {
+            data.coords.speed
+            data.coords.heading
+        });
+    - xcode -> Simulator
+    - Safari -> Develop -> Simulator -> Console
 22 Follow Along Link Highlighter            [DOM&INTERFACE, CSS]
+    - elem.getBoundingClientRect()  - to get width/height of elem
+    - elem.addEventListener('mouseenter', f-n);
+    -   const highlight = document.createElement('span');
+        highlight.classList.add('highlight');
+        document.body.append(highlight);
 23 Speech Synthesis                         [FUN&EXPERIMENTAL, AUDIO&VIDEO]
+    - The Web Speech API has two parts: 
+        SpeechSynthesis (Text-to-Speech), and 
+        SpeechRecognition (Asynchronous Speech Recognition.)
+    -   const msg = new SpeechSynthesisUtterance();                 // msg.text = document.querySelector('[name="text"]').value
+        speechSynthesis.addEventListener('voiceschanged', f-n);     // this.getVoices()
+        speechSynthesis.cancel();
+        speechSynthesis.speak(msg);
 24 Sticky Nav                               [DOM&INTERFACE, FUNDAMENTALS, CSS]
+    -   elem.offsetTop
+        elem.offsetHeight
+    - window.scrollY
+    -   document.body.style.paddingTop
+        document.body.classList.add('myClassName')
+        document.body.classList.remove
+    - window.addEventListener('scroll', f-n)
 25 Event Capture, Propagation, Bubbling and Once    [DOM&INTERFACE]
+    - bubbling concept      // run the f-n on the way up        // When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors.
+    - e.stopPropagation();  // "STOP BUBBLING
+    - elem.addEventListener('click', f-n, { capture: false, once: true })
+        capture: false,     // run the f-n on the way down rather than on the way up
+        once: true          // to do click(or other event) once and never again
 26 Stripe Follow Along Nav                  [DOM&INTERFACE, FUN&EXPERIMENTAL]
+    -   this.classList.add('myClass');
+        this.classList.remove('myClass');
+    - setTimeout(()=>{}, 150);
+    - elem.getBoundingClientRect();
+    - elem.style.setProperty('height', `${coords.height}px`);
+    -   elem.addEventListener('mouseenter', f-n);
+        elem.addEventListener('mouseleave', f-n);
+    - CSS:  
+        transform: translate(10px, 10px);   // (x,y)
+        transform: skew(10deg, 10deg);      // (x,y)
+        transform: scale(2, 0.5);           // (x,y)
+        transform: rotate(45deg);   
+        transform: perspective(23rem);   
+        transform: matrix(1, 2, -1, 1, 80, 80);   
 27 Click and Drag                           [DOM&INTERFACE, FUNDAMENTALS]
+    -   elem.addEventListener('mousedown', f-n)
+        elem.addEventListener('mouseleave', f-n)
+        elem.addEventListener('mouseup', f-n)
+        elem.addEventListener('mousemove', f-n)
+    -   e.pageX 
+        elem.offsetLeft
+        elem.scrollLeft
 28 Video Speed Controller                   [AUDIO&VIDEO, FUN&EXPERIMENTAL]
+    -   e.pageY
+        this.offsetTop
+        this.offsetHeight
+    - Math.round()
+    - myNumber.toFixed(2)
+    - myVideo.playbackRate
+    - elem.addEventListener('mousemove', f-n)
 29 Countdown Timer                          [FUNDAMENTALS, CSS]
+    -   setInterval(() => {},1000)
+        clearInterval(setInterval_Variable);
+    -   Date.now();
+        new Date(myTimestamp).getHours()
+        new Date(myTimestamp).getMinutes()
+    -   Math.round()
+        Math.floor()
+        parseInt(myStr)
+    - document.title
+    - elem.textContent = 'test'
+    - this.dataset.time
+    - elem.addEventListener('submit', function(){
+        e.preventDefault();
+        ...
+        this.reset();
+    })
 30 Whack A Mole                             [DOM&INTERFACE, CSS, FUN&EXPERIMENTAL]
+    - Game, recursion
+    -   Math.round()
+        Math.random()
+        Math.floor()
+    - myStr.textContent
+    - elem.classList.remove() / elem.classList.add()
+    - setTimeout(()=>{}, 1000)
+    - e.isTrusted    /* The event is trusted */
+        true - when the event was generated by a user action, 
+        false - when the event was created or modified by a script or dispatched via EventTarget.dispatchEvent().
+    - this.parentNode (the parent node of the specified node)
