@@ -259,3 +259,8 @@ https://javascript30.com/
     - arr.forEach()
     - event.currentTarget
     - arr.find()
+33 - Shopping List  [taken from https://beginnerjavascript.com/ course]
+
+34 - Gallery    [taken from https://beginnerjavascript.com/ course]
+
+35 - Slider [taken from https://beginnerjavascript.com/ course]
