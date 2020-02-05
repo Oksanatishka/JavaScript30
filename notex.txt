@@ -260,7 +260,57 @@ https://javascript30.com/
     - event.currentTarget
     - arr.find()
 33 - Shopping List  [taken from https://beginnerjavascript.com/ course]
-
+    -   elem.dispatchEvent(new CustomEvent('itemsUpdated'));
+        elem.addEventListener('itemsUpdated', f-n)
+    - e.preventDefault();
+    - parseInt(e.target.value)
+    - (e.target.matches('button')
+    - Date.now()
+    - e.target.reset();
+    -   arr.map().join('');
+        arr.filter()
+        arr.find()
+    -   localStorage.setItem('items', JSON.stringify(items));
+        JSON.parse(localStorage.getItem('items'));
 34 - Gallery    [taken from https://beginnerjavascript.com/ course]
-
+    - throw new Error('No Gallery Found!');
+    - Array.from();
+    - bind
+    - arr.forEach()
+    - myClass.prototype
 35 - Slider [taken from https://beginnerjavascript.com/ course]
+    - my_parameter instanceof my_Class1
+    - window.addEventListener('keyup', f-n)
+36 - Async Typer
+    - new Promise(resolve => setTimeout(resolve, parameter));
+    -   Math.floor()
+        Math.random()
+    - slice
+    - forEach
+37 - Dad Jokes
+    - const response_data = await fetch('url', {headers: {Accept: 'application/json'}}).json();
+38 - Web Speech Colour Game
+    - import { handleResult } from './handlers';
+    - arr.map().join('');
+    - window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    -   const recognition = new SpeechRecognition();
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        recognition.onresult = handleResult;
+        recognition.start();
+    - Object.keys(myObj).sort((a, b) => a.length - b.length);
+39 - Audio Visualizer Oscilloscope
+    - const ctx = canvas.getContext('2d');
+    - async function getAudio() {
+        const stream = await navigator.mediaDevices
+            .getUserMedia({ audio: true })
+            .catch(handleError);
+        const audioCtx = new AudioContext();
+        ..
+      }
+
+Examples:
+- 001 Callback vs Promise vs Await
+- 002 Data Structures in js - array, object, stack, queue, linked list, tree, graph, hash table.
+- 003 destructuring - in arrays, objects, mixed, f-n parameters.
+- 004 sorting - arr.sort(), buble, merge, quick.  
